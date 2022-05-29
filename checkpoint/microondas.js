@@ -1,66 +1,72 @@
-let readlineSync = require("../checkpoint/lib/readline-sync");
-
-let tmPipoca = 10;
-let tmMacarrao = 8;
-let tmCarne = 15;
-let tmFeijao = 12;
-let tmBrigadeiro = 8;
+let tpPipoca = 10;
+let tpMacarrao = 8;
+let tpCarne = 15;
+let tpFeijao = 12;
+let tpBrigadeiro = 8;
 
 console.log(`
-  Bem-vindo ao nosso Microondas ultra rápido, escolha abaixo. 
+    Estas são as opções diponiveis, aproveite:
 
-  1 - Pipoca       10 segundos (Padrão).
-  2 - Macarrão     08 segundos (Padrão). 
-  3 - Carne        15 segundos (Padrão).         
-  4 - Feijão       12 segundos (Padrão).
-  5 - Brigadeiro   08 segundos (Padrão).
-
+  1 - Pipoca       10 segundos.
+  2 - Macarrão     08 segundos. 
+  3 - Carne        15 segundos.         
+  4 - Feijão       12 segundos.
+  5 - Brigadeiro   08 segundos.
   `);
 
-let option = readlineSync.question("Digite sua opcao: ");
-let timer = readlineSync.question("Digite seu tempo: ");
+function microondas (option,timer) {
 
 if (
-  (option == 1 && timer == tmPipoca) ||
-  (option == 2 && timer == tmMacarrao) ||
-  (option == 3 && timer == tmFeijao) ||
-  (option == 4 && timer == tmCarne) ||
-  (option == 5 && timer == tmBrigadeiro)
+  (option == 1 && timer == tpPipoca) ||
+  (option == 2 && timer == tpMacarrao) ||
+  (option == 3 && timer == tpFeijao) ||
+  (option == 4 && timer == tpCarne) ||
+  (option == 5 && timer == tpBrigadeiro)
 ) {
-  console.log("Prato pronto, bom apetite!!");
+  console.log("Prato pronto, bom apetite!!!");
 } else if (
-  (option == 1 && timer <= tmPipoca) ||
-  (option == 2 && timer <= tmMacarrao) ||
-  (option == 3 && timer <= tmFeijao) ||
-  (option == 4 && timer <= tmCarne) ||
-  (option == 5 && timer <= tmBrigadeiro)
+  (option == 1 && timer <= tpPipoca) ||
+  (option == 2 && timer <= tpMacarrao) ||
+  (option == 3 && timer <= tpFeijao) ||
+  (option == 4 && timer <= tpCarne) ||
+  (option == 5 && timer <= tpBrigadeiro)
 ) {
-  console.log("Tempo insulficiente!!");
+  console.log("Tempo insuficiente!");
 }
 else if (
-  (option == 1 && timer > tmPipoca && timer <= 19)||
-  (option == 2 && timer > tmMacarrao && timer <= 15) ||
-  (option == 3 && timer > tmFeijao && timer <= 29) ||
-  (option == 4 && timer > tmCarne && timer <= 23) ||
-  (option == 5 && timer > tmBrigadeiro && timer <= 15)
+  (option == 1 && timer > tpPipoca && timer <= tpPipoca * 1.5)||
+  (option == 2 && timer > tpMacarrao && timer <= tpMacarrao * 1.5) ||
+  (option == 3 && timer > tpFeijao && timer <= tpFeijao * 1.5 ) ||
+  (option == 4 && timer > tpCarne && timer <= tpCarne * 1.5) ||
+  (option == 5 && timer > tpBrigadeiro && timer <= tpBrigadeiro * 1.5)
 ) {
-  console.log("Seu prato quase queimou!!");
+  console.log("Esta otimo!");
 } else if (
-  (option == 1 && timer > tmPipoca * 2 && timer < tmPipoca*3) ||
-  (option == 2 && timer > tmMacarrao * 2 && timer < tmMacarrao*3) ||
-  (option == 3 && timer > tmFeijao * 2  && timer < tmFeijao*3) ||
-  (option == 4 && timer > tmCarne * 2 && timer < tmCarne *3) ||
-  (option == 5 && timer > tmBrigadeiro * 2 && timer < tmBrigadeiro*3)
+  (option == 1 && timer > tpPipoca && timer <= tpPipoca * 2)||
+  (option == 2 && timer > tpMacarrao && timer <= tpMacarrao * 2) ||
+  (option == 3 && timer > tpFeijao && timer <= tpFeijao * 2 ) ||
+  (option == 4 && timer > tpCarne && timer <= tpCarne * 2) ||
+  (option == 5 && timer > tpBrigadeiro && timer <= tpBrigadeiro * 2)
 ) {
-  console.log("O prato queimou!!");
+  console.log("Passou um pouco!");
 } else if (
-  (option == 1 && timer >= tmPipoca * 3) ||
-  (option == 2 && timer >= tmMacarrao * 3) ||
-  (option == 3 && timer >= tmFeijao * 3) ||
-  (option == 4 && timer >= tmCarne * 3) ||
-  (option == 5 && timer >= tmBrigadeiro * 3)
+  (option == 1 && timer > tpPipoca * 2 && timer < tpPipoca*3) ||
+  (option == 2 && timer > tpMacarrao * 2 && timer < tpMacarrao*3) ||
+  (option == 3 && timer > tpFeijao * 2  && timer < tpFeijao*3) ||
+  (option == 4 && timer > tpCarne * 2 && timer < tpCarne *3) ||
+  (option == 5 && timer > tpBrigadeiro * 2 && timer < tpBrigadeiro*3)
 ) {
-  console.log("Kabumm!!!");
+  console.log("A comida queimou!");
+} else if (
+  (option == 1 && timer >= tpPipoca * 3) ||
+  (option == 2 && timer >= tpMacarrao * 3) ||
+  (option == 3 && timer >= tpFeijao * 3) ||
+  (option == 4 && timer >= tpCarne * 3) ||
+  (option == 5 && timer >= tpBrigadeiro * 3)
+) {
+  console.log("Kabumm!");
 } else {
-  console.log("Prato inexistente, tente novamente!");
+  console.log("Prato inexistente!");
 }
+}
+microondas (1,1)  // Escolha aqui o tempo para os pratos.
